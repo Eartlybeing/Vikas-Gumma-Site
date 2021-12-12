@@ -4,15 +4,16 @@
 	h2 {
 		color: #212F3C;
 		text-align: center;
-		border-style: solid;
-		border-width: medium;
-		border-color: black;
-		background-color: #1F618D;
-		border-radius: Round border;
-		margin: 0 auto;
-		padding: 20px 80px;
-		width: 80%;
+	}
 
+	h2::before {
+		display: block;
+		background-color: red;
+	}
+
+	h2::after {
+		display: block;
+		background-color: red;
 	}
 
 	body {
@@ -20,11 +21,6 @@
 	}
 
 	.black-box {
-  position: relative;
-  z-index: 1;
-  border: 2px solid black;
-  height: 100px;
-  margin: 30px;
 	}
 
 </style>
