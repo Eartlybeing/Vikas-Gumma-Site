@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+html,
+body {
+  min-width: 290px;
+  color: #4d4e53;
+  background-color: #ffffff;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#navbar {
+  position: fixed;
+  min-width: 290px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+
+header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  color: #4d4e53;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+
+section article {
+  color: #4d4e53;
+  margin: 15px;
+  font-size: 0.96em;
+}
+
+section li {
+  margin: 15px 0px 0px 20px;
+}
+
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 815px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+
+  #navbar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+
+  code {
+    margin-left: -20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
+}
+
+
+
+</style>
+
+<nav id="navbar">
+  <blockquote>
+  <header>  "Programming" </header> </blockquote>
+  <ul>
+    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+    <li>
+      <a class="nav-link" href="#Things_to_Do_and_Understand">Things to Do and Understand</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#Setting_up_the_environment">Setting up the environment</a>
+    </li>
+    <li><a class="nav-link" href="#Responsive_Web_Design">Responsive Web Design</a></li>
+    <li><a class="nav-link" href="#Future_Scope">Future Scope</a></li>
+    <li>
+      <a class="nav-link" href="#freeCodeCamp">freeCodeCamp</a>
+    </li>
+    <li><a class="nav-link" href="#W3School">W3School</a></li>
+    <li><a class="nav-link" href="#CodePen">CodePen</a></li>
+    <li>
+      <a class="nav-link" href="#JavaScript_and_Java"> JavaScript and Java </a></li>
+    <li>
+      <a class="nav-link" href="#Conclusion">Conclusion</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#Reference">Reference</a>
+        </li>
+  </ul>
+</nav>
+
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <article>
+      <p>
+        Computers are all over the place we use them for every thing, for entertainment, education, business, etc..,
+        
+        There are apps for everything, some are free, some are paid, some are only for showing adds and waste time, Some are awesome and very useful. 
+        
+       </p>
+
+      <p>
+        Computer programming is the process of accomplishing a specific computing result or to perform a particular computing task, usually by designing/building an executable computer program.
+        
+       Programming involves tasks such as analysis, generating algorithms, profiling algorithms' accuracy and resource consumption, and the implementation of algorithms in a chosen programming language commonly referred to as coding.
+      </p>
+      <ul>
+        <li>
+          Why coding is improtant and whats the point in learning it
+        </li>
+        <li>
+          How to get started and take advantage of open source platforms and courses 
+        </li>
+        <p>
+        These are the focal points of this doucmentaion
+      </p>
+        
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="Things_to_Do_and_Understand">
+    <header> Things to Do and Understand</header>
+    <article>
+      <p>This guide assumes you have the following basic background:</p>
+
+      <ul>
+        <li>
+          A general understanding of the Internet and the World Wide Web (WWW).
+        </li>
+        <li>Good working knowledge of Computers.</li>
+        <p> Coding can be useful for these works
+        </p>
+        <li>
+          Building Websites
+        </li>
+          <li>
+          Making android, ios & windows apps 
+        </li>
+          <p> These are few of the possisble applications of programing an they are many other posiblities such as Big Data works, machine learning and artificial intelligence
+        </p>  
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="Setting_up_the_environment">
+    <header>Setting up the environment</header>
+    <article>
+      <p>
+       Sign up for an account on GitHub.com and then install GitHub PC app or install browser sync along with Code editer like Sublime text 3 and also install NodeJs
+      </p>
+
+      <p>
+        We need realise the fact that we need explore and study the detailes in youtube and other resoureses like google and wikipida for getting better at Coding
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Responsive_Web_Design">
+    <header>Responsive Web Design
+</header>
+    <article>
+      Learning the languages that developers use to build webpages: HTML (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
+
+First, learning the basics of HTML and CSS. Later, we'll learn modern techniques like CSS variables, and best practices for accessibility.
+
+Finally, We'll learn how to make webpages that respond to different screen sizes with Flexbox, and a complex blog layout with CSS Grid.
+      <p> HTML Hypertext Markup Language and CSS cascading style sheets allow us design web pages with simple commands
+      </p>
+      <p>The HTML <code>headings tag </code> HTML headings are defined with the h1 to h6 tags.</p>
+      
+      <p>The HTML <code>paragraph tag</code> HTML paragraph are defined with the p tags</p>
+      
+      <p>The HTML <code>image tag</code> HTML images are defined with the img tags.</p>
+      
+      <p>The CSS <code>background-color</code> property defines the background color of an element.</p>
+      
+      <p>The CSS <code>font-family</code> property to specify the font of a text</p>
+      
+    </article>
+  </section>
+  <section class="main-section" id="Future_Scope">
+    <header>Future Scope</header>
+    <p>
+     after learning Responsive Web Design we have many other options to do and learn to built a good IT career such as 
+       <ul>
+        <li>
+          JavaScript Algorithms and Data Structures
+        </li>
+        <li>Front End Development Libraries</li>
+        <li>
+          Data Visualization
+        </li>
+          <li>
+          Back End Development and APIs
+        </li>
+         <p> These could lead us staight to learning Web 3.0 </p>
+      </ul>
+    
+  </section>
+  <section class="main-section" id="freeCodeCamp">
+    <header>freeCodeCamp</header>
+    <article>
+      What is freeCodeCamp?
+      <p>
+       It is a nonprofit community that helps you learn to code by building projects.
+        Every aspect of freeCodeCamp is 100% free.
+      </p>
+      <p>
+        It is a community of millions of people around the world who are learning to code together. Learn to code with free online courses, programming projects, and interview preparation for developer jobs
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="W3School">
+    <header>W3School</header>
+    <article>
+      <p>
+        When we face common syntex errors while coding we might feel stuck and need some comparasion while in the beginning stages Look no Further W3School Online got our back we can learn new thing and also get new ideas from here.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="CodePen">
+    <header>CodePen</header>
+    <article>
+      <p>
+        This is a online code editor which allows us to build websites in browser and i'm currently using it to complete my projects
+        
+        This enables us to view HTML, CSS an Java Script simultaneously.
+    </article>
+  </section>
+  <section class="main-section" id="JavaScript_and_Java">
+    <header>JavaScript and Java</header>
+    <article>
+      <p>
+        JavaScript often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. Over 97% of websites use JavaScript on the client side for web page behavior, often incorporating third-party libraries. All major web browsers have a dedicated JavaScript engine to execute the code on users' devices.
+
+JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).
+
+The ECMAScript standard does not include any input/output (I/O), such as networking, storage, or graphics facilities. In practice, the web browser or other runtime system provides JavaScript APIs for I/O.
+
+JavaScript engines were originally used only in web browsers, but are now core components of some servers and a variety of applications. The most popular runtime system for this usage is Node.js.
+
+Although Java and JavaScript are similar in name, syntax, and respective standard libraries, the two languages are distinct and differ greatly in design.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Conclusion">
+    <header>Conclusion</header>
+    <article>
+      <p>In Conclusion if we wanna keep up in IT world of computers and technology we need to keep learning and exploring new frontiers and keep on updating our knowledge tree</p>
+    </article>
+  </section>
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <ul>
+        <li>
+          Link For freeCodeCamp
+          <a
+            href="https://www.freecodecamp.org"
+            target="_blank"
+            >FCC</a
+          >
+        </li>
+        <li>
+          Link For W3Schools Online
+          <a
+            href="https://www.w3schools.com/"
+            target="_blank"
+            >W3S</a
+          >
+        </li>
+        <li>
+          Link For CodePen
+          <a
+            href="https://codepen.io/"
+            target="_blank"
+            >CPen</a
+          >
+        </li>
+        
+      </ul>
+    </article>
+  </section>
+</main>
+
+
+
+<body>
+
+</body>
+</html>
