@@ -6,7 +6,7 @@ html {
   font-size: 11px;
 }
 
-.nav {
+nav {
   display: flex;
   justify-content: flex-end;
   position: fixed;
@@ -18,28 +18,28 @@ html {
   z-index: 10;
 }
 
-.nav-list {
+nav-list {
   display: flex;
   margin-right: 2rem;
 }
 
 @media (max-width: 28.75em) {
-  .nav {
+  nav {
     justify-content: center;
   }
 
-  .nav-list {
+  nav-list {
     margin: 0 1rem;
   }
 }
 
-.nav-list a {
+nav-list a {
   display: block;
   font-size: 2.2rem;
   padding: 2rem;
 }
 
-.nav-list a:hover {
+nav-list a:hover {
   background: var(--main-blue);
 }
 
