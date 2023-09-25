@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #080402;
+        }
+
+        .gallery {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%; /* Adjust to 60% if you want each image to cover 60% of the screen */
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #080402;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            color: #008080; /* Change text color */
+        }
+
+        button:hover {
+            box-shadow: 0 0 40px 40px #3498db inset; /* Change box shadow color */
+            color: #3d126e; /* Change text color on hover */
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+    </style>
+    <title>Photo Gallery</title>
+</head>
+<body>
+    <div class="gallery">
+        <div class="slider">
+            <img src="D:\New folder\For Linked In\Batch 1 12 sept.jpg" alt="Image 1" data-tooltip="Image 1">
+            <img src="D:\New folder\For Linked In\Batch 3 17 Oct.jpg" alt="Image 2" data-tooltip="Image 2">
+            <img src="D:\New folder\For Linked In\Batch 4 7 nov 2.jpg" alt="Image 3" data-tooltip="Image 3">
+            <img src="D:\New folder\For Linked In\Batch 4 7 nov.jpg" alt="Image 4" data-tooltip="Image 4">
+            <img src="D:\New folder\For Linked In\Batch 5 5th dec 2.jpg" alt="Image 5" data-tooltip="Image 5">
+            <img src="D:\New folder\For Linked In\Batch 5 5th dec.jpg" alt="Image 6" data-tooltip="Feb 6th 2023">
+            <img src="D:\New folder\For Linked In\Batch 6 16th jan 2.jpg" alt="Image 7" data-tooltip="Jan 16th 2023">
+            <img src="D:\New folder\For Linked In\Batch 7 6th mar.png" alt="Image 8" data-tooltip="Mar 6th 2023">
+            <img src="D:\New folder\For Linked In\Batch 8 WGC 8th may.png" alt="Image 9" data-tooltip="May 8th 2023">
+            <img src="D:\New folder\For Linked In\Batch 9 CJB 5th jun.png" alt="Image 10" data-tooltip="Jun 5th 2023">
+            <img src="D:\New folder\For Linked In\Batch 9 VP 7th Aug.jpg" alt="Image 11" data-tooltip="Aug 7th 2023">
+            <!-- Add more image URLs or relative paths here -->
+        </div>
+        <button class="prev">&#8592</button>
+        <button class="next">&#8594</button>
+    </div>
+    <script>
+        const slider = document.querySelector('.slider');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const images = document.querySelectorAll('.slider img');
+
+        let currentIndex = 0;
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            } else if (e.key === 'ArrowRight') {
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            }
+        });
+
+        function updateSlider() {
+            const translateValue = -currentIndex * 100; // 100% width per image
+            slider.style.transform = `translateX(${translateValue}%)`;
+        }
+    </script>
+</body>
+</html>

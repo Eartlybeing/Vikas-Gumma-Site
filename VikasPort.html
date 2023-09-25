@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #080402;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+}
+/* Custom properties/variables  */
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-red);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: var(--main-blue);
+}
+
+/* Welcome section */
+
+/* Pro Photo */ 
+
+.container {
+  margin: 0 auto;
+  max-width: 996px;
+}
+.splash {
+  
+  background-size: cover;
+  color: #FFF;
+}
+
+.splash .container {
+  padding-top: 15vh; /* No JS fallback*/
+  padding-bottom: 10vh; /* No JS fallback*/
+}
+
+.profile-image {
+  border-radius: 50%;
+  display: block;
+  max-height:250px;
+  max-width: 250px;
+  margin: 0 auto 1em;
+  width: 100%;
+  opacity: 0.85;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background:url("https://unsplash.com/photos/nd_6z4JFK4g/download?force=true") no-repeat fixed center bottom;
+}
+
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--main-red);
+}
+
+/* Define a class or target the specific element you want to add a box around */
+.my-box {
+  /* Set the border style (e.g., solid, dashed, dotted, etc.) */
+  border-style: solid;
+  
+  /* Set the border width (e.g., 1px, 2px, etc.) */
+  border-width: 1px;
+
+  /* Set the border color (you can use color names, hex codes, or RGB values) */
+  border-color: #FFFFFF; /* Black in this example */
+
+  /* Optionally, you can also set the padding inside the box */
+  padding: 10px; /* Adjust the value to your preference */
+}
+
+
+
+
+/* Projects section */
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 5rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/*gallery */
+
+        /* Gallery section */
+        .gallery {
+          position: relative;
+          overflow: hidden;
+          background: var(--main-red);
+        }
+
+        .slider {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          position: relative; /* Added relative positioning */
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+  
+          background-color: #080402;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+          color: #008080; /* Change text color */
+        }
+
+        button:hover {
+  
+          box-shadow: 0 0 40px 40px #3498db inset; /* Change box shadow color */
+          color: #3d126e; /* Change text color on hover */
+        }
+
+        .prev {
+          
+          left: 10px;
+          position: relative; /* Added relative positioning */
+          left: -18px;
+        }
+
+        .next {
+  
+          right: 10px;
+          position: relative; /* Added relative positioning */
+          left: -20px;
+        }
+
+
+/* portfolio section */
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.content-slide {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.content-slide img {
+  width: 70%;
+}
+
+.fp-controlArrow.fp-next {
+  border-color: transparent transparent transparent #ff6363 !important;
+  right: 45px !important;
+}
+
+.fp-controlArrow.fp-prev {
+  border-color: transparent #ff6363 transparent transparent !important;
+  left: 45px !important;
+}
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: rgba(0, 0, 0, 0.62) !important;
+}
+
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 5rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-image {
+  height: calc(100% - 6rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
+}
+
+.contact-section-header > h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header > p {
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* Footer */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--main-gray);
+  border-top: 4px solid var(--main-red);
+}
+
+footer > p {
+  margin: 2rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vikas Portfolio </title>
+</head>
+<body>
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+  rel="stylesheet"
+/>
+<!-- START NAV -->
+
+<nav id="navbar" class="nav">
+  <ul class="nav-list">
+    <li>
+      <a href="#welcome-section">About</a>
+    </li>
+    <li>
+      <a href="#gallery">Gallery</a>
+    <li>
+    <li>
+      <a href="#projects">Certifications</a>
+    </li>
+    
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- END NAV -->
+
+<!-- START WELCOME SECTION -->
+
+<section id="welcome-section" class="welcome-section">
+
+  <div class="container-fluid splash" id="splash">
+  <div class="container">
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/71/9e/59/719e59481d2be40a77ab6c3386fc0a45--photoshop-illustrator-illustrator-tutorials.jpg" alt="Portrait of Mr. Roboto" class="profile-image"> 
+  
+  <h1>Hello there!</h1>
+
+  <h2>I'm Vikas</h2><br>
+
+
+  <p class="my-box"> 
+    About <br><br>
+    To work with an Organization where my knowledge, skills, and education that I have acquired can be put to use and to enhance my potential. My intent has always been to contribute to the growth of the Organization as well 
+as to augment my growth and development.<br><br>
+
+&#9830 my short term goal is to work in L&D and contribute to many projects using my training facilitation skills and instructional design skills<br><br>
+
+&#9830 my long term goal is to become a mid level manger in L&D in next 5 years
+
+  </p>
+
+
+  </div>
+  </div>
+  
+</section>
+
+<!-- END WELCOME SECTION -->
+
+<!-- START Gallery SECTION -->
+
+<section id="gallery" class="gallery">
+
+  <h2 class="gallery">Gallery</h2>
+
+
+ <div class="slider" data-anchor="projects">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img1.jpg" alt="Image 1" data-tooltip="Image 1">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img2.jpg" alt="Image 2" data-tooltip="Image 2">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img3.jpg" alt="Image 3" data-tooltip="Image 3">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img5.jpg" alt="Image 5" data-tooltip="Image 5">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img6.png" alt="Image 6" data-tooltip="Image 6">
+            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img7.png" alt="Image 7" data-tooltip="Image 7">
+            
+            <!-- Add more image URLs or relative paths here -->
+        </div>
+        <button class="prev">&#8592 Previous</button>
+        <button class="next">Next &#8594</button>
+
+        <p class="my-box">It's been one year ever since i embarked upon this great journy which brings a new found enlightenment to my way of life and i am proud to say that i am part of leading and mentoring these wonderful people, i'm very happy to reach this milestone and to share it with all of you these staggering photos.</p>
+    </div>
+    <!-- end section -->
+
+
+<!-- END Gallery SECTION -->
+
+<!-- START PROJECTS SECTION -->
+
+<section id="projects" class="projects-section">
+  <h2 class="projects-section-header">Some of my Certifications</h2>
+
+<div class="projects-grid">
+    <a
+      href="https://www.linkedin.com/learning/certificates/9402cc2f245d2eeb2302a8a19943c9e85fc1d8382f456279c594e5186fff9ceb"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQEYP27H5sGYwQ/feedshare-shrink_800/0/1689518919418?e=1697068800&v=beta&t=O4cunti4WkHyL16LDsYlDcaR9BMf0Ut7oFY0PEqGLGE"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Agile Instructional Design
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/ad7bae2c1747721976ac5283f56912b2e0bdd11394f8414b313bf2311de4d493"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQGH3pTL7X6wRw/feedshare-shrink_800/0/1690524245673?e=1697068800&v=beta&t=3UCa3rngIFbS504TBOD4x7IicxROhat2QQStI-9DH8A"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Elearning Essentials: SCORM and Tin Can API
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/ff2fbf516b25f783fedba0a6613fe0d723f7afd9de01afe7a60113af4d8f5e36"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQF72Mc6AFUpTQ/feedshare-shrink_800/0/1689935405659?e=1697068800&v=beta&t=JB7GpzvS88GRc43TW_8TB8cfyXEESa72w1OoUCd6H6w"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Elearning Essentials: Storyboarding
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/c406270c4beb269245f4a70a1664337cd063d785f0bbcbd622d0089421c490b3"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQGi9M4q6cJIAQ/feedshare-shrink_800/0/1690511152351?e=1697068800&v=beta&t=L_wtG1yDCnhVtlfw0kUAU5ilSPz2JsjZfR7VHxqhFkE"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Gamification for Interactive Learning
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/b8981835bf07185eda93e623dced1a775621d3634ff9207a47bd075515d638e7"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQFN1eFdXvstVw/feedshare-shrink_800/0/1690375700276?e=1697068800&v=beta&t=FEqFVaE9RO_XluNzlV-VPgNPLcS4YfHjmZMKtr5Dx58"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Gamification of Learning
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/36548926d7f8139d3867c57bda69cf1abaeff60411c7ce34a5c15a4352c6ca6d"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQEnrrzN9k9NoQ/feedshare-shrink_800/0/1690705800230?e=1697068800&v=beta&t=nXoLrZM-NzpAGpkY2oBCEEPtF8XkwSH45YDYM5IsBus"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Human Resources: Strategic Workforce Planning
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/07dd02fe98575d87fe76093a71f2795202d7518f4b6c93182f2f14fac323b2b5"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQEtZHYZ3AWXZw/feedshare-shrink_800/0/1689220710310?e=1697068800&v=beta&t=cojO7V4ov30MhEhmAPoVi3dCQAbXEruFj3tVgJxjqcg"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Instructional Design Essentials: Models of ID
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/597be4e0b3d7b8f03018d0514c204d8724a5ce891cb32da39a4ba9808dc87c90"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQH62StJPCi3QA/feedshare-shrink_800/0/1689595202269?e=1697068800&v=beta&t=WQO7s0LferLfoSBQ_gVe-ozmS7kI9KPiInEnkd-P48A"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Instructional Design: Adult Learners
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/a0b8164bb8a04bb602b7135fa31ab3a54e53cb347eb22910241125a985ccc64c"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQFSEpsUOzqTbA/feedshare-shrink_800/0/1690139493690?e=1697068800&v=beta&t=zvmZr-rdM9EqHZ0OCW1EKkb7AYRZcbLUHkdWiDc15a8"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Instructional Design: Creating Video Training
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/4a196544c5d71f6c90fd6e1fb701938dc11ea3fa63f91fc40566d41073dfb6fc"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQGFWAPLNW7BFg/feedshare-shrink_800/0/1689910322615?e=1697068800&v=beta&t=vapS3tpd4a0cCYv3hBBZv91TuEiGeQs6fFgQZNooNZ8"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Instructional Design: Needs Analysis
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/344737065000e30cafaff9163f049fc366e57f19d6845475ce07015a57dd73fe"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQHLT1yZGW9c9A/feedshare-shrink_800/0/1690253051500?e=1697068800&v=beta&t=vhtpjiPVrqQZwyjotH7hw-dHN1kLktlW-3NJ0wUC5Uw"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Instructional Design: Working with SMEs
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/ba64fb2b91f101d5b5c510d962134b0602fedc8c70fdd3e9eb650854f84c3a3c"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQHTnSoHP0HCLA/feedshare-shrink_800/0/1690542483920?e=1697068800&v=beta&t=V6n-nDOxHCuFhgStJpArybhHDbQF4BQvKqxArRwwVd8"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Measuring Learning Effectiveness
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/learning/certificates/1582ac8505f53a344305a2c3e946dfe237fc00c4add1dc3d7d8017ade302a55a"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://media.licdn.com/dms/image/D5622AQEvPJQ-6xlWAw/feedshare-shrink_800/0/1688831456275?e=1697068800&v=beta&t=OAzFKxu1H70ldsGAEffsUiSTyr1eU6JmoRHAZfwwr8g"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Train the Trainer
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.coursera.org/account/accomplishments/verify/4FHPEQM7YCTW"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~4FHPEQM7YCTW/CERTIFICATE_LANDING_PAGE~4FHPEQM7YCTW.jpeg"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Introduction to Psychology
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+      href="https://www.freecodecamp.org/certification/earthlybeing/responsive-web-design"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/FreeCodeCamp_logo.png/800px-FreeCodeCamp_logo.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Responsive Web Design
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+</div>
+
+</section>
+
+<!-- END PROJECTS SECTION -->
+
+<!-- START CONTACT SECTION -->
+
+<section id="contact" class="contact-section">
+  <div class="contact-section-header">
+    <h2>Let's Connect...</h2>
+  </div>
+  <div class="contact-links">
+    <a
+      href="https://www.linkedin.com/in/gumma-venkata-narasimha-naga-vikas-730489167/"
+      target="_blank"
+      class="btn contact-details">
+
+      <i class="fab fa-linkedin"></i> LinkedIn</a> 
+
+    <a
+      href="https://wa.me/+916304410703"
+      target="_blank"
+      class="btn contact-details">
+
+      <i class="fab fa-whatsapp"></i> WhatsApp</a>
+
+    <a
+      id="profile-link"
+      href="https://github.com/Eartlybeing"
+      target="_blank"
+      class="btn contact-details">
+
+      <i class="fab fa-github"></i> GitHub</a>
+
+    <a href="mailto:gummavikas@gmail.com" class="btn contact-details">
+
+    <i class="fas fa-at"></i> Send a mail</a>
+
+    <a href="tel:+916304410703" class="btn contact-details">
+
+      <i class="fas fa-mobile-alt"></i> Call me</a>
+      
+  </div>
+</section>
+
+<!-- END CONTACT SECTION -->
+
+<!-- START FOOTER SECTION -->
+
+<footer>
+  <p>
+    **This is my offical portfolio. All the projects and contact details given only for offical purpose, please do not misuse Thank you!!!
+  </p>
+  
+</footer>
+
+<!-- END FOOTER SECTION -->
+
+<!-- JS for gallery -->
+    
+    <script>
+        const slider = document.querySelector('.slider');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const images = document.querySelectorAll('.slider img');
+
+        let currentIndex = 0;
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            } else if (e.key === 'ArrowRight') {
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            }
+        });
+
+        function updateSlider() {
+            const translateValue = -currentIndex * 100; // 100% width per image
+            slider.style.transform = `translateX(${translateValue}%)`;
+        }
+    </script>
+</body>
+</html>

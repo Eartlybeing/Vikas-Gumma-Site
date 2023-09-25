@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* Define your cursor styles here */
+        .dynamicCursor {
+            width: 30px;
+            height: 30px;
+            background: rgba(161, 142, 218, 0.25);
+            border: 2px solid black;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            transition: transform 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000), width 0.4s 0.2s, height 0.4s 0.2s, opacity 1s 0.2s;
+        }
+        .cursorIcon {
+            position: absolute;
+            font-family: Raleway;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-align: center;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 11px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        /* Additional gallery styles */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-gallery img {
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Define your gallery images -->
+    <div class="image-gallery">
+        <img src="D:\New folder\For Linked In\Batch 1 12 sept.jpg" alt="Image 1" data-tooltip="Image 1">
+        <img src="D:\New folder\For Linked In\Batch 3 17 Oct.jpg" alt="Image 2" data-tooltip="Image 2">
+        <img src="D:\New folder\For Linked In\Batch 4 7 nov 2.jpg" alt="Image 3" data-tooltip="Image 3">
+        <img src="D:\New folder\For Linked In\Batch 4 7 nov.jpg" alt="Image 4" data-tooltip="Image 4">
+        <img src="D:\New folder\For Linked In\Batch 5 5th dec 2.jpg" alt="Image 5" data-tooltip="Image 5">
+        <img src="D:\New folder\For Linked In\Batch 5 5th dec.jpg" alt="Image 6" data-tooltip="Feb 6th 2023">
+        <img src="D:\New folder\For Linked In\Batch 6 16th jan 2.jpg" alt="Image 7" data-tooltip="Jan 16th 2023">
+        <img src="D:\New folder\For Linked In\Batch 7 6th mar.png" alt="Image 8" data-tooltip="Mar 6th 2023">
+        <img src="D:\New folder\For Linked In\Batch 8 WGC 8th may.png" alt="Image 9" data-tooltip="May 8th 2023">
+        <img src="D:\New folder\For Linked In\Batch 9 CJB 5th jun.png" alt="Image 10" data-tooltip="Jun 5th 2023">
+        <img src="D:\New folder\For Linked In\Batch 9 VP 7th Aug.jpg" alt="Image 11" data-tooltip="Aug 7th 2023">
+
+    </div>
+
+    <!-- Dynamic cursor element -->
+    <div class="dynamicCursor">
+        <div class="cursorIcon"></div>
+    </div>
+
+    <script>
+        // JavaScript code for dynamic cursor
+        const cursor = document.querySelector('.dynamicCursor');
+        const cursorIcon = document.querySelector('.cursorIcon');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.pageX;
+            const y = e.pageY;
+
+            cursor.style.opacity = 1;
+            cursor.style.transform = `translate(${x - 15}px, ${y - 15}px)`;
+        });
+
+        const galleryImages = document.querySelectorAll('.image-gallery img');
+
+        galleryImages.forEach((image) => {
+            image.addEventListener('mouseover', () => {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+                cursorIcon.innerHTML = image.getAttribute('data-tooltip');
+                cursorIcon.style.opacity = 1;
+            });
+
+            image.addEventListener('mouseout', () => {
+                cursor.style.width = '30px';
+                cursor.style.height = '30px';
+                cursorIcon.style.opacity = 0;
+            });
+        });
+    </script>
+</body>
+</html>
