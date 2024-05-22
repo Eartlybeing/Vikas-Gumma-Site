@@ -1,750 +1,997 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vikas Gumma</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
 
-<style type="text/css">
-:root {
-  --main-white: #f0f0f0;
-  --main-red: #756AB6;
-  --main-blue: #92C7CF;
-  --main-gray: #000000;
-}
-/* Custom properties/variables  */
-
-/* Base reset */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* box-sizing and font sizing */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-
-  /* Set font size for easy rem calculations
-   * default document font size = 16px, 1rem = 16px, 100% = 16px
-   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
-  */
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-}
-
-@media (max-width: 75em) {
-  html {
-    font-size: 60%;
-  }
-}
-
-/* 980px / 16px = 61.25em */
-@media (max-width: 61.25em) {
-  html {
-    font-size: 58%;
-  }
-}
-
-/* 460px / 16px = 28.75em */
-@media (max-width: 28.75em) {
-  html {
-    font-size: 55%;
-  }
-}
-
-/* Base styles */
-
-body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem; /* 18px */
-  font-weight: 400;
-  line-height: 1.4;
-  color: #92C7CF;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  text-align: center;
-  color: #92C7CF;
-}
-
-h1 {
-  font-size: 4.5rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: var(--main-white);
-}
-
-img {
-  display: block;
-  width: 100%;
-}
-
-
-
-/* nav */
-
-.cap {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  text-align: center;
-  color: #92C7CF;
-  font-size: 4rem;
-  background-color: #000000;
-  margin: 0 auto 5rem auto;
-
-}
-
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--main-red);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-
-.nav-list {
-  display: flex;
-  margin-right: 2rem;
-}
-
-@media (max-width: 28.75em) {
-  .nav {
-    justify-content: center;
-  }
-
-  .nav-list {
-    margin: 0 1rem;
-  }
-}
-
-.nav-list a {
-  display: block;
-  font-size: 2.2rem;
-  padding: 2rem;
-}
-
-.nav-list a:hover {
-  background: var(--main-gray);
-}
-
-/* Welcome section */
-
-/* Pro Photo */ 
-
-.container {
-  margin: 0 auto;
-  max-width: 996px;
-}
-.splash {
-  
-  background-size: cover;
-  color: #FFF;
-}
-
-.splash .container {
-  padding-top: 15vh; /* No JS fallback*/
-  padding-bottom: 10vh; /* No JS fallback*/
-}
-
-.profile-image {
-  border-radius: 50%;
-  display: block;
-  max-height:250px;
-  max-width: 250px;
-  margin: 0 auto 1em;
-  width: 100%;
-  opacity: 0.85;
-}
-
-.welcome-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background:url("https://unsplash.com/photos/nd_6z4JFK4g/download?force=true") no-repeat fixed center bottom;
-}
-
-.welcome-section > p {
-  font-size: 2.4rem;
-  font-weight: 200;
-  font-style: italic;
-  color: var(--main-red);
-}
-
-.my-box {
-  
-  border-style: solid;
-  border-width: 1px;
-  border-color: #FFFFFF;
-  padding: 10px;
-  color: #FFFFFF;
-  font-size: 1.8rem;
-}
-
-
-/* Projects section */
-
-.projects-section {
-  text-align: center;
-  padding: 10rem 2rem;
-  background: var(--main-red);
-}
-
-.projects-section-header {
-  max-width: 640px;
-  margin: 0 auto 5rem auto;
-  border-bottom: 0.2rem solid var(--main-white);
-}
-
-@media (max-width: 28.75em) {
-  .projects-section-header {
-    font-size: 4rem;
-  }
-}
-
-
-/*gallery*/
-
-
-
-/* portfolio section */
-
-.content {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
-}
-
-.content-slide {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
-}
-
-.content-slide img {
-  width: 70%;
-}
-
-.fp-controlArrow.fp-next {
-  border-color: transparent transparent transparent #ff6363 !important;
-  right: 45px !important;
-}
-
-.fp-controlArrow.fp-prev {
-  border-color: transparent #ff6363 transparent transparent !important;
-  left: 45px !important;
-}
-
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  background: rgba(0, 0, 0, 0.62) !important;
-}
-
-/* "Automagic" image grid using no media queries */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 4rem;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 6rem;
-}
-
-@media (max-width: 30.625em) {
-  .projects-section {
-    padding: 4rem 1rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.project {
-  background: #76ABAE;
-  box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
-}
-
-.project-title {
-  font-size: 2rem;
-  padding: 2rem 0.5rem;
-}
-
-.project:hover {
-  transform: translateY(8px);
-}
-
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 2px;
-}
-
-.btn-show-all {
-  font-size: 2rem;
-  background: var(--main-gray);
-  transition: background 0.3s ease-out;
-}
-
-.btn-show-all:hover {
-  background: var(--main-red);
-}
-
-.btn-show-all:hover > i {
-  transform: translateX(2px);
-}
-
-.btn-show-all > i {
-  margin-left: 10px;
-  transform: translateX(0);
-  transition: transform 0.3s ease-out;
-}
-
-
-/* Contact section */
-
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 80vh;
-  padding: 0 2rem;
-  background: var(--main-gray);
-}
-
-.contact-section-header > h2 {
-  font-size: 6rem;
-}
-
-@media (max-width: 28.75em) {
-  .contact-section-header > h2 {
-    font-size: 4rem;
-  }
-}
-
-.contact-section-header > p {
-  font-style: italic;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 980px;
-  margin-top: 4rem;
-  flex-wrap: wrap;
-}
-
-.contact-details {
-  font-size: 2.4rem;
-  text-shadow: 2px 2px 1px #1f1f1f;
-  transition: transform 0.3s ease-out;
-}
-
-.contact-details:hover {
-  transform: translateY(8px);
-}
-
-/* Footer */
-
-footer {
-  font-weight: 300;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 2rem;
-  background: var(--main-gray);
-  border-top: 4px solid var(--main-red);
-}
-
-footer > p {
-  margin: 2rem;
-}
-
-footer i {
-  vertical-align: middle;
-}
-
-@media (max-width: 28.75em) {
-  footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-</style>
-
-<head>
-  <meta charset="utf-8">
-  <title>Vikas Portfolio </title>
-</head>
-<body>
 <link
   rel="stylesheet"
   href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
   crossorigin="anonymous"
-/>
-<link
-  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
-  rel="stylesheet"
-/>
-<!-- START NAV -->
+/>	
 
-<nav id="navbar" class="nav">
-  <ul class="nav-list">
-    <li>
-      <a href="#welcome-section">About</a>
-    </li>
-    <li>
-      <a href="#projects">Projects</a>
-    </li>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
 
-    <!--
-    <li>
-      <a href="#Awards">Awards</a>
-    </li>
-    -->
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
-    <li>
-      <a href="#gallery">Gallery</a>
-    <li>
-    
-    <li>
-      <a href="#Certifications">Certifications</a>
-    </li>
-    
-      <a href="#contact">Contact</a>
-    </li>
-  </ul>
-</nav>
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<div class="container-wrap">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+			<div class="text-center">
+				<div class="author-img" style="background-image: url(images/about.jpg);"></div>
+				<h1 id="colorlib-logo"><a href="index.html">Vikas Gumma</a></h1>
+				<span class="position"><a href="#">Facilitator | Instructional Designer</span>
+			</div>
+			<nav id="colorlib-main-menu" role="navigation" class="navbar">
+				<div id="navbar" class="collapse">
+					<ul>
+						<li class="active"><a href="#" data-nav-section="home">Home</a></li>
+						<li><a href="#" data-nav-section="about">About</a></li>
+						<li><a href="#" data-nav-section="services">Projects</a></li>
+						<li><a href="#" data-nav-section="skills">XP</a></li>
+						<li><a href="#" data-nav-section="education">Education</a></li>
+						<li><a href="#" data-nav-section="experience">Certifications</a></li>
+						<li><a href="#" data-nav-section="work">Gallery</a></li>
+<!--						
+						<li><a href="#" data-nav-section="blog">Blog</a></li>
+-->						
+						<li><a href="#" data-nav-section="contact">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
 
-<!-- END NAV -->
-
-<!-- START WELCOME SECTION -->
-
-<section id="welcome-section" class="welcome-section">
-
-  <div class="container-fluid splash" id="splash">
-  <div class="container">
-    <img src="https://github.com/Eartlybeing/Vikas-Gumma-Site/blob/gh-pages/Gallery/123.jpg" alt="Portrait of Mr. Roboto" class="profile-image">
-  
-  <h1>Gumma Venkata Narasimha Naga Vikas!!</h1>
-
-  <h3>Training Facilitator | Instructional Designer | Team Leader </h3>
-  <br>
-
-
-  <p class="my-box"> 
-    About <br><br>
-    Well-qualified Training Specialist adept at planning and implementing onsite and remote training programs. Authoritative and clear communicator with enthusiastic style and insightful approach.
-<br><br>
-
-&#9830 Creating, organizing, planning, and presenting various forms of onboarding, orientation, and skills training for over 500 employees across Visakhapatnam, Warangal, Coimbatore, Raipur and Philippines. <br><br>
-
-&#9830 Worked on a cutting-edge employee benefits eligibility and data entry process as SME to vastly improve client retention rates as well as the defect percentage from 6.06% H1 to 1.52% H2 FY23.
-  </p>
-
-
-  </div>
-  </div>
-  
-</section>
-
-<!-- END WELCOME SECTION -->
-
-<!-- START Projects SECTION -->
-
-<section id="Projects" class="Projects">
-
-  <h2 class="cap">Projects</h2>
-
-<!-- end section -->
-
-<!-- END Projects SECTION -->
-
-
-
-<!-- START Awards SECTION -->
-
-<!--
-<section id="Awards" class="Awards">
-
-  <h2 class="cap">Awards</h2>
+			<div class="colorlib-footer">
+				<p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.  </span> <span>Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>
 -->
+				<ul>
+				<!--	
+					<li><a href="#"><i class="icon-facebook2"></i></a></li>
+					<li><a href="#"><i class="icon-twitter2"></i></a></li>
+				-->	
+					<li><a href="https://www.instagram.com/vikas_the_real_dovahkiin/"target="_blank"><i class="icon-instagram"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/gumma-venkata-narasimha-naga-vikas-730489167/"target="_blank""><i class="icon-linkedin2"></i></a></li>
+				</ul>
+			</div>
 
-<!-- end section -->
+		</aside>
 
-<!-- END Awards SECTION -->
+		<div id="colorlib-main">
+			<section id="colorlib-hero" class="js-fullheight" data-section="home">
+				<div class="flexslider js-fullheight">
+					<ul class="slides">
+				   	<li style="background:background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);">
+				   		<div class="overlay"></div>
+				   		<div class="container-fluid">
+				   			<div class="row">
+					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+					   				<div class="slider-text-inner js-fullheight">
+					   					<div class="desc">
+						   					<h1>Hi! <br>Gumma Venkata Narasimha Naga
+											Vikas</h1>
+												<p><a class="btn btn-primary btn-learn">Download CV <i class="icon-download4"></i></a></p>
+											</div>
+					   				</div>
+					   			</div>
+					   		</div>
+				   		</div>
+				   	</li>
+				   	<li style="background: background-color: #8BC6EC;
+						background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);">
+				   		<div class="overlay"></div>
+				   		<div class="container-fluid">
+				   			<div class="row">
+					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+					   				<div class="slider-text-inner">
+					   					<div class="desc">
+						   					<h1>I am <br>a Leader</h1>
+											</div>
+					   				</div>
+					   			</div>
+					   		</div>
+				   		</div>
+				   	</li>
+				  	</ul>
+			  	</div>
+			</section>
+
+			<section class="colorlib-about" data-section="about">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="col-md-12">
+									<div class="about-desc">
+										<span class="heading-meta">About Us</span>
+										<h2 class="colorlib-heading">Who Am I?</h2>
+										<p><strong>Hi I'm Vikas Gumma</strong> A well-qualified Training Specialist adept at planning and implementing onsite and remote training
+										programs. Authoritative and clear communicator with enthusiastic style and insightful approach.</p>
+										<p>Creating, organizing, planning, and presenting various forms of onboarding, orientation, and
+										skills training for over 500 employees across Visakhapatnam, Warangal, Coimbatore, Raipur
+										and Philippines. </p>
+										<p>Recently worked on a cutting-edge employee benefits eligibly and data entry process as
+										SME to vastly improve client retention rates as well as the defect percentage from 6.06% H1
+										to 1.52% H2 FY23.</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+									<div class="services color-1">
+										<span class="icon2"><i class="icon-bulb"></i></span>
+										<h3>Instructional Design</h3>
+									</div>
+								</div>
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+									<div class="services color-2">
+										<span class="icon2"><i class="icon-globe-outline"></i></span>
+										<h3>Process Training</h3>
+									</div>
+								</div>
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
+									<div class="services color-3">
+										<span class="icon2"><i class="icon-data"></i></span>
+										<h3>Web Design</h3>
+									</div>
+								</div>
+<!--
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
+									<div class="services color-4">
+										<span class="icon2"><i class="icon-phone3"></i></span>
+										<h3>Application</h3>
+									</div>
+								</div>
+							</div>
 
 
-<!-- START Gallery SECTION -->
+							<div class="row">
+								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+									<div class="hire">
+										<h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
+										<a href="#" class="btn-hire">Hire me</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-<section id="gallery" class="gallery">
+-->
+			
+			<section class="colorlib-services" data-section="services">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">What I do?</span>
+							<h2 class="colorlib-heading">Here are some of my Projects</h2>
+						</div>
+					</div>
+					<div class="row row-pt-md">
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-1">
+								<span class="icon">
+									<i class="icon-bulb"></i>
+								</span>
+								<div class="desc">
+									<h3>Introduction to Leadership and Management</h3>
+									<p>for dummies</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-2">
+								<span class="icon">
+									<i class="icon-data"></i>
+								</span>
+								<div class="desc">
+									<h3>Data</h3>
+									<p>Basic Interpretation and Presentation</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-3">
+								<span class="icon">
+									<i class="icon-phone3"></i>
+								</span>
+								<div class="desc">
+									<h3>Storybording</h3>
+									<p>Do it Early | Do it Rough | Do it Often</p>
+								</div>
+							</div>
+						</div>
+<!--
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-4">
+								<span class="icon">
+									<i class="icon-layers2"></i>
+								</span>
+								<div class="desc">
+									<h3>Graphic Design</h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-5">
+								<span class="icon">
+									<i class="icon-data"></i>
+								</span>
+								<div class="desc">
+									<h3>Software</h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 text-center animate-box">
+							<div class="services color-6">
+								<span class="icon">
+									<i class="icon-phone3"></i>
+								</span>
+								<div class="desc">
+									<h3>Application</h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+			<div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+					</div>
+					<div class="row">
+						<div class="col-md-3 text-center animate-box">
+							<span class="colorlib-counter js-counter" data-from="0" data-to="309" data-speed="5000" data-refresh-interval="50"></span>
+							<span class="colorlib-counter-label">Cups of coffee</span>
+						</div>
+						<div class="col-md-3 text-center animate-box">
+							<span class="colorlib-counter js-counter" data-from="0" data-to="356" data-speed="5000" data-refresh-interval="50"></span>
+							<span class="colorlib-counter-label">Projects</span>
+						</div>
+						<div class="col-md-3 text-center animate-box">
+							<span class="colorlib-counter js-counter" data-from="0" data-to="30" data-speed="5000" data-refresh-interval="50"></span>
+							<span class="colorlib-counter-label">Clients</span>
+						</div>
+						<div class="col-md-3 text-center animate-box">
+							<span class="colorlib-counter js-counter" data-from="0" data-to="10" data-speed="5000" data-refresh-interval="50"></span>
+							<span class="colorlib-counter-label">Partners</span>
+						</div>
+					</div>
+				</div>
+			</div>
+-->	
+			<section class="colorlib-skills" data-section="skills">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">My Journey</span>
+							<h2 class="colorlib-heading animate-box">XP</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+							<p><strong> Professional Summery: </Strong>To work with an Organization where my knowledge, skills, and education that I have acquired can
+							be put to use and to enhance my potential. My intent has always been to contribute to the growth of
+							the Organization as well as to augment my growth and development.</p>
+						</div>
+						<br>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="progress-wrap">
+								<h3>Process Trainer at Patra Corp</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="100"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:100%">
+								    <span>Jun 22 - Present</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="progress-wrap">
+								<h3>Process Executive at Patra Corp</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="100"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:100%">
+								    <span>Feb 21 - Jun 22</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="progress-wrap">
+								<h3>Assistant Designer</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="100"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:100%">
+								    <span>Nov 17 - Aug 19</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+<!--
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="progress-wrap">
+								<h3>CSS3</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
+								    <span>90%</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="progress-wrap">
+								<h3>WordPress</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
+								    <span>70%</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="progress-wrap">
+								<h3>SEO</h3>
+								<div class="progress">
+								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
+								  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
+								    <span>80%</span>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+-->
+			<section class="colorlib-education" data-section="education">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Education</span>
+							<h2 class="colorlib-heading animate-box">Education</h2>
+						</div>
+					</div>
+<!--
+					<div class="row">
+						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+							<div class="fancy-collapse-panel">
+								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+									<div class="panel panel-default">
+									    <div class="panel-heading" role="tab" id="headingOne">
+									        <h4 class="panel-title">
+									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Master Degree Graphic Design
+									            </a>
+									        </h4>
+									    </div>
+									    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+									         <div class="panel-body">
+									            <div class="row">
+										      		<div class="col-md-6">
+										      			<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+										      		</div>
+										      		<div class="col-md-6">
+										      			<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+										      		</div>
+										      	</div>
+									         </div>
+									    </div>
+									</div>
+-->									
+									<div class="panel panel-default">
+									    <div class="panel-heading" role="tab" id="headingTwo">
+									        <h4 class="panel-title">
+									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Bachelor Degree
+									            </a>
+									        </h4>
+									    </div>
+									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+									        <div class="panel-body">
+									            <p>Andhra University, School of Distance Education - Visakhapatnam, Andhra Pradesh</p>
+													<ul>
+														<li>Bachelor of Arts – History, Economics & Politics</li>
+														<li>January 2022</li>
+													</ul>
+									        </div>
+									    </div>
+									</div>
+									<div class="panel panel-default">
+									    <div class="panel-heading" role="tab" id="headingThree">
+									        <h4 class="panel-title">
+									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Diploma in Civil Engineering
+									            </a>
+									        </h4>
+									    </div>
+									    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									        <div class="panel-body">
+									            <ul>
+														<li>State Board of Technical Education and Training</li>
+														<li>2014 - 2017</li>
+													</ul>
+									        </div>
+									    </div>
+									</div>
+<!--
+									<div class="panel panel-default">
+									    <div class="panel-heading" role="tab" id="headingFour">
+									        <h4 class="panel-title">
+									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Diploma in Information Technology
+									            </a>
+									        </h4>
+									    </div>
+									    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+									        <div class="panel-body">
+									            <p>Far far away, behind the word <strong>mountains</strong>, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>	
+									        </div>
+									    </div>
+									</div>
+-->
+									<div class="panel panel-default">
+									    <div class="panel-heading" role="tab" id="headingFive">
+									        <h4 class="panel-title">
+									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">High School Secondary Education
+									            </a>
+									        </h4>
+									    </div>
+									    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+									        <div class="panel-body">
+									            <ul>
+														<li>Bhashyam public school</li>
+														<li>2014</li>
+													</ul>
+									        </div>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-  <h2 class="cap">Gallery</h2>
+			<section class="colorlib-experience" data-section="experience">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Certs</span>
+							<h2 class="colorlib-heading animate-box">Certifications</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+				         <div class="timeline-centered">
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
 
-   <div class=".projects-grid" data-anchor="projects">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img1.jpg" alt="Image 1" data-tooltip="Image 1">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img2.jpg" alt="Image 2" data-tooltip="Image 2">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img3.jpg" alt="Image 3" data-tooltip="Image 3">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img4.jpg" alt="Image 4" data-tooltip="Image 4">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img5.png" alt="Image 5" data-tooltip="Image 5">
-            <img src="D:\New folder\ Code\Earthlybeing-s-Site\Gallery\img6.png" alt="Image 6" data-tooltip="Image 6">
-            
-  </div>
+					               <div class="timeline-icon color-1">
+					                  <i class="icon-pen2"></i>
+					               </div>
 
-<!-- end section -->
+					               <div class="timeline-label">
+					                  <h2><a href="https://www.linkedin.com/learning/certificates/1582ac8505f53a344305a2c3e946dfe237fc00c4add1dc3d7d8017ade302a55a"
+      									target="_blank">Train the Trainer</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-<!-- END Gallery SECTION -->
 
-<!-- Certifications -->
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-2">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/b8981835bf07185eda93e623dced1a775621d3634ff9207a47bd075515d638e7"
+      								target="_blank">Gamification of Learning</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-<section id="Certifications" class="projects-section">
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-3">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/c406270c4beb269245f4a70a1664337cd063d785f0bbcbd622d0089421c490b3"
+      								target="_blank">Gamification for Interactive Learning</a> </span></h2>
+					               </div>
+					            </div>
+					         </article>
 
-<h2 class="cap">Certifications</h2>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-4">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/07dd02fe98575d87fe76093a71f2795202d7518f4b6c93182f2f14fac323b2b5"
+      								target="_blank">Instructional Design Essentials: Models of ID</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-<div class="projects-grid">
-    <a
-      href="https://www.linkedin.com/learning/certificates/9402cc2f245d2eeb2302a8a19943c9e85fc1d8382f456279c594e5186fff9ceb"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Agile Instructional Design
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-5">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/9402cc2f245d2eeb2302a8a19943c9e85fc1d8382f456279c594e5186fff9ceb"
+      								target="_blank">Agile Instructional Design</a></h2>
+					               </div>
+					            </div>
+					         </article>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/ad7bae2c1747721976ac5283f56912b2e0bdd11394f8414b313bf2311de4d493"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Elearning Essentials: SCORM and Tin Can API
-      </p>
-    </a>
+					               <div class="timeline-icon color-1">
+					                  <i class="icon-pen2"></i>
+					               </div>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/ff2fbf516b25f783fedba0a6613fe0d723f7afd9de01afe7a60113af4d8f5e36"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Elearning Essentials: Storyboarding
-      </p>
-    </a>
+					               <div class="timeline-label">
+					                  <h2><a href="https://www.linkedin.com/learning/certificates/597be4e0b3d7b8f03018d0514c204d8724a5ce891cb32da39a4ba9808dc87c90"
+      								target="_blank">Instructional Design: Adult Learners</a></h2>
+					               </div>
+					            </div>
+					         </article>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-2">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/4a196544c5d71f6c90fd6e1fb701938dc11ea3fa63f91fc40566d41073dfb6fc"
+      								target="_blank">Instructional Design: Needs Analysis</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/c406270c4beb269245f4a70a1664337cd063d785f0bbcbd622d0089421c490b3"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Gamification for Interactive Learning
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-3">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/ff2fbf516b25f783fedba0a6613fe0d723f7afd9de01afe7a60113af4d8f5e36"
+      								target="_blank">Elearning Essentials: Storyboarding</a> </span></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/b8981835bf07185eda93e623dced1a775621d3634ff9207a47bd075515d638e7"
-      target="_blank"
-      class="project project-tile"
-    >
-      
-      <p class="project-title">
-        Gamification of Learning
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-4">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/a0b8164bb8a04bb602b7135fa31ab3a54e53cb347eb22910241125a985ccc64c"
+      								target="_blank">Instructional Design: Creating Video Training</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/36548926d7f8139d3867c57bda69cf1abaeff60411c7ce34a5c15a4352c6ca6d"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Human Resources: Strategic Workforce Planning
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-5">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/344737065000e30cafaff9163f049fc366e57f19d6845475ce07015a57dd73fe"
+      								target="_blank">Instructional Design: Working with SMEs </a></h2>
+					               </div>
+					            </div>
+					            </article>
+					            <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/07dd02fe98575d87fe76093a71f2795202d7518f4b6c93182f2f14fac323b2b5"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Instructional Design Essentials: Models of ID
-      </p>
-    </a>
+					               <div class="timeline-icon color-1">
+					                  <i class="icon-pen2"></i>
+					               </div>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/597be4e0b3d7b8f03018d0514c204d8724a5ce891cb32da39a4ba9808dc87c90"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Instructional Design: Adult Learners
-      </p>
-    </a>
+					               <div class="timeline-label">
+					                  <h2><a href="https://www.linkedin.com/learning/certificates/ba64fb2b91f101d5b5c510d962134b0602fedc8c70fdd3e9eb650854f84c3a3c"
+      								target="_blank">Measuring Learning Effectiveness</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/a0b8164bb8a04bb602b7135fa31ab3a54e53cb347eb22910241125a985ccc64c"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Instructional Design: Creating Video Training
-      </p>
-    </a>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/4a196544c5d71f6c90fd6e1fb701938dc11ea3fa63f91fc40566d41073dfb6fc"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Instructional Design: Needs Analysis
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-2">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/ad7bae2c1747721976ac5283f56912b2e0bdd11394f8414b313bf2311de4d493"
+      								target="_blank">Elearning Essentials: SCORM and Tin Can API</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/344737065000e30cafaff9163f049fc366e57f19d6845475ce07015a57dd73fe"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Instructional Design: Working with SMEs
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-3">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.linkedin.com/learning/certificates/36548926d7f8139d3867c57bda69cf1abaeff60411c7ce34a5c15a4352c6ca6d"
+      								target="_blank">Human Resources: Strategic Workforce Planning</a> </span></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/ba64fb2b91f101d5b5c510d962134b0602fedc8c70fdd3e9eb650854f84c3a3c"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Measuring Learning Effectiveness
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-4">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.coursera.org/account/accomplishments/verify/4FHPEQM7YCTW"
+      								target="_blank">Introduction to Psychology</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.linkedin.com/learning/certificates/1582ac8505f53a344305a2c3e946dfe237fc00c4add1dc3d7d8017ade302a55a"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Train the Trainer
-      </p>
-    </a>
+					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-5">
+					                  <i class="icon-pen2"></i>
+					               </div>
+					               <div class="timeline-label">
+					               	<h2><a href="https://www.freecodecamp.org/certification/earthlybeing/responsive-web-design"
+      								target="_blank">Responsive Web Design</a></h2>
+					               </div>
+					            </div>
+					         </article>
 
-    <a
-      href="https://www.coursera.org/account/accomplishments/verify/4FHPEQM7YCTW"
-      target="_blank"
-      class="project project-tile"
-    >
-      <p class="project-title">
-        Introduction to Psychology
-      </p>
-    </a>
 
-    <a
-      href="https://www.freecodecamp.org/certification/earthlybeing/responsive-web-design"
-      target="_blank"
-      class="project project-tile"
-    >
-     <p class="project-title">
-        Responsive Web Design
-      </p>
-    </a>
-</div>
+					         </article>
+					         <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+					            <div class="timeline-entry-inner">
+					               <div class="timeline-icon color-none">
+					               </div>
+					            </div>
+					         </article>
+					      </div>
+					   </div>
+				   </div>
+				</div>
+			</section>
 
-</section>
+			<section class="colorlib-work" data-section="work">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">My Work</span>
+							<h2 class="colorlib-heading animate-box">Gallery</h2>
+						</div>
+					</div>
+<!--					
+					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+						<div class="col-md-12">
+							<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a href="#">Web Design</a></span> <span><a href="#">Software</a></span> <span><a href="#">Apps</a></span></p>
+						</div>
+					</div>
+-->					
+					<div class="row">
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(images/img-1.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">Oct 3rd 2022</a></h3>
+										<span>Vizag</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="project" style="background-image: url(images/img-2.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">Oct 17th 2022</a></h3>
+										<span>Vizag</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
+							<div class="project" style="background-image: url(images/img-3.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">Nov 7th 2022</a></h3>
+										<span>Vizag</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
+							<div class="project" style="background-image: url(images/img-4.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">Dec 5th 2022</a></h3>
+										<span>Vizag</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(images/img-5.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">May 8th 2023</a></h3>
+										<span>Warangal</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="project" style="background-image: url(images/img-6.jpg);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="work.html">Jun 5th 2023</a></h3>
+										<span>Coimbatore</span>
+										<p class="icon">
+											<span><a href="#"><i class="icon-share3"></i></a></span>
+											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
+											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+<!--					
+					<div class="row">
+						<div class="col-md-12 animate-box">
+							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+						</div>
+					</div>
+-->					
+				</div>
+			</section>
+<!--
+			<section class="colorlib-blog" data-section="blog">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Read</span>
+							<h2 class="colorlib-heading">Recent Blog</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-1.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Renovating National Gallery</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-2.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Wordpress for a Beginner</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog.html" class="blog-img"><img src="images/blog-3.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+								<div class="desc">
+									<span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog.html">Make website from scratch</a></h3>
+									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 animate-box">
+							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+-->	
+			<section class="colorlib-contact" data-section="contact">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Get in Touch</span>
+							<h2 class="colorlib-heading">Contact</h2>
+						</div>
+					
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="fab fa-linkedin"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="https://www.linkedin.com/in/gumma-venkata-narasimha-naga-vikas-730489167/"
+      								target="_blank">LinkedIn</a></p>
+								</div>
+							</div>
 
-<!-- END PROJECTS SECTION -->
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="fab fa-whatsapp"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="https://wa.me/+916304410703"
+      								target="_blank">
+      								WhatsApp</a></p>
+								</div>
+							</div>
 
-<!-- START CONTACT SECTION -->
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="fab fa-github"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="https://github.com/Eartlybeing"
+      								target="_blank">GitHub</a></p>
+								</div>
+							</div>
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="fas fa-at"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="mailto:gummavikas@gmail.com"
+      								target="_blank">Send a mail</a></p>
+								</div>
+							</div>
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="fas fa-mobile-alt"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="tel:+916304410703"
+      								target="_blank">Call me</a></p>
+								</div>
+							</div>
+						</div>
 
-<section id="contact" class="contact-section">
-  <div class="contact-section-header">
-    <h2>Let's Connect...</h2>
-  </div>
-  <div class="contact-links">
-    <a
-      href="https://www.linkedin.com/in/gumma-venkata-narasimha-naga-vikas-730489167/"
-      target="_blank"
-      class="btn contact-details">
+						<div class="col-md-7 col-md-push-1">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
+									<form action="">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Name">
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Email">
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Subject">
+										</div>
+										<div class="form-group">
+											<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
+										</div>
+									</form>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <i class="fab fa-linkedin"></i> LinkedIn</a> 
+		</div><!-- end:colorlib-main -->
+	</div><!-- end:container-wrap -->
+	</div><!-- end:colorlib-page -->
 
-    <a
-      href="https://wa.me/+916304410703"
-      target="_blank"
-      class="btn contact-details">
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	
+	
+	<!-- MAIN JS -->
+	<script src="js/main.js"></script>
 
-      <i class="fab fa-whatsapp"></i> WhatsApp</a>
-
-    <a
-      id="profile-link"
-      href="https://github.com/Eartlybeing"
-      target="_blank"
-      class="btn contact-details">
-
-      <i class="fab fa-github"></i> GitHub</a>
-
-    <a href="mailto:gummavikas@gmail.com" class="btn contact-details">
-
-    <i class="fas fa-at"></i> Send a mail</a>
-
-    <a href="tel:+916304410703" class="btn contact-details">
-
-      <i class="fas fa-mobile-alt"></i> Call me</a>
-      
-  </div>
-</section>
-
-<!-- END CONTACT SECTION -->
-
-<!-- START FOOTER SECTION -->
-
-<footer>
-  <p>
-    **This is my offical portfolio. All the projects and contact details given only for offical purpose, please do not misuse Thank you!!!
-  </p>
-  
-</footer>
-
-<!-- END FOOTER SECTION -->
-
+	</body>
 </html>
+
