@@ -7,8 +7,8 @@
 
 /* =======================================================
 *
-* 	Template Style 
-*	Edit this section
+*   Template Style 
+* Edit this section
 *
 * ======================================================= */
 body {
@@ -57,15 +57,15 @@ figure {
 
 ::-webkit-selection {
   color: #fff;
-  background: #57A6A1; }
+  background: #2c98f0; }
 
 ::-moz-selection {
   color: #fff;
-  background: #57A6A1; }
+  background: #2c98f0; }
 
 ::selection {
   color: #fff;
-  background: #57A6A1; }
+  background: #2c98f0; }
 
 #colorlib-page {
   width: 100%;
@@ -78,9 +78,10 @@ figure {
   float: left;
   width: 300px;
   position: fixed;
+  left: 0px;
   overflow-y: scroll;
   z-index: 1001;
-  background: #DDDDDD;
+  background: #f2f3f7;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -395,7 +396,9 @@ body.offcanvas {
     .colorlib-services,
     .colorlib-contact {
       padding-top: 5em;
-      padding-bottom: 8em; } }
+      padding-bottom: 8em;
+      padding-left: 2em;
+      padding-right: 2em; } }
 
 .author-img {
   background-size: cover;
