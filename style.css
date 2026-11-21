@@ -171,3 +171,17 @@ dialog p{text-align:center;margin:.8rem auto 0}
   .hero-actions .btn{width:100%;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* project page */
+.simple-nav{display:flex;gap:1.2rem}.simple-nav a{color:#fff;text-decoration:none;font-weight:500}
+.simple-nav a:hover{text-decoration:underline}
+.proj-hero{grid-template-columns:1fr}.proj-hero h1{font-size:clamp(2rem,5vw,3.4rem)}
+.doclist{list-style:none;margin:1.6rem 0 2rem;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.doclist a{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:5px solid var(--bb);border-radius:10px;padding:1rem 1.2rem;height:100%;transition:background .2s}
+.doclist li:nth-child(even) a{border-left-color:var(--red-700)}
+.doclist a:hover{background:var(--blue-100)}
+.doclist .ct{font:700 1.05rem var(--head);color:var(--tb)}
+.doclist .dn{grid-column:1;color:var(--muted);font-size:.93rem}
+.doclist .ci{grid-column:2;grid-row:1;align-self:start;font-weight:600;color:var(--tr)}
+[hidden]{display:none!important}
+@media (max-width:700px){.doclist{grid-template-columns:1fr}}
