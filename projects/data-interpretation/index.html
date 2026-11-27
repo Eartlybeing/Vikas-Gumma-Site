@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data: Basic Interpretation and Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6f9;--sf:#fff;--ink:#13233f;--mu:#52627a;--ln:#d5dde8;--ac:#0d6e72;--as:#dff1f0;--wn:#b3261e;--ws:#fbe6e4;--ok:#1d7a46;--os:#e0f3e7;--hero:#13233f;--hi:#f3f6f9;--ser:"Newsreader",Georgia,serif;--san:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--sf:#17233a;--ink:#e8eef7;--mu:#9fb0c8;--ln:#2b3a55;--ac:#4fc3bf;--as:#16363a;--wn:#ff8a80;--ws:#3a1f22;--ok:#6fd49a;--os:#18332a;--hero:#0a1120;--hi:#e8eef7;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1626;--sf:#17233a;--ink:#e8eef7;--mu:#9fb0c8;--ln:#2b3a55;--ac:#4fc3bf;--as:#16363a;--wn:#ff8a80;--ws:#3a1f22;--ok:#6fd49a;--os:#18332a;--hero:#0a1120;--hi:#e8eef7;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 clamp(16px,1vw + 11px,18px)/1.6 var(--san);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--sf);z-index:30}
+h1,h2,h3{font-family:var(--ser);line-height:1.15;margin:0}
+h3{font-size:1.15rem}p{margin:.5em 0;max-width:68ch}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px;border-radius:6px}
+.app{display:block}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sf);border-bottom:1px solid var(--ln);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav b{display:none;font:700 1.05rem var(--ser);padding:6px 12px}
+nav button{flex:none;border:0;background:none;color:var(--mu);border-radius:99px;padding:8px 14px;font:500 .9rem var(--san);cursor:pointer;min-height:40px;text-align:left}
+nav button.on,nav button:hover{background:var(--as);color:var(--ac)}
+nav button.on{font-weight:600}
+nav button.d::after{content:" ✓"}
+main{max-width:980px;margin:0 auto;padding:clamp(18px,4vw,44px) clamp(16px,4vw,48px) 56px}
+.hero{background:var(--hero);color:var(--hi);border-radius:20px;padding:clamp(22px,5vw,48px)}
+.hero h1{font-size:clamp(1.9rem,5vw,3.2rem);max-width:18ch}
+.hero p{opacity:.8}
+.pill{display:inline-block;border:1px solid currentColor;opacity:.75;border-radius:99px;padding:3px 12px;font-size:.82rem;margin:12px 8px 0 0}
+.mh h2{font-size:clamp(1.6rem,4vw,2.4rem)}
+.lede{color:var(--mu)}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:clamp(14px,3vw,24px);margin-top:16px}
+.grid{display:grid;gap:12px;margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.grid .card{margin:0;padding:16px}.grid p{color:var(--mu);font-size:.93rem;margin:.3em 0 0}
+.grid button.card{text-align:left;font:inherit;color:inherit;cursor:pointer}.grid button.card:hover{border-color:var(--ac)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tags span{background:var(--as);color:var(--ac);padding:3px 12px;border-radius:99px;font-size:.86rem;font-weight:500}
+.tags.bad span{background:var(--ws);color:var(--wn)}
+.act{border-left:4px solid var(--ac);border-radius:4px 16px 16px 4px}
+.out{background:var(--os);border:0}
+.split{display:grid;gap:16px}
+code{font:500 .88em ui-monospace,Menlo,Consolas,monospace;background:var(--as);padding:1px 6px;border-radius:5px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:left}th{color:var(--mu);font-weight:600}
+.scroll{overflow-x:auto}
+button.btn{font:600 1rem var(--san);cursor:pointer;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:10px 16px;border-radius:10px;min-height:44px}
+button.btn:hover{border-color:var(--ac)}button.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+[data-theme="dark"] button.btn.p{color:#06201f}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.opts{display:grid;gap:8px}.opts .btn{text-align:left;font-weight:500}
+.right{background:var(--os)!important;border-color:var(--ok)!important}.wrong{background:var(--ws)!important;border-color:var(--wn)!important}
+.fb{display:none;margin-top:10px;padding:10px 14px;border-radius:10px;background:var(--as);font-size:.95rem}
+.q h3{font:600 1.05rem/1.4 var(--san);margin-bottom:10px}
+.sc{font:700 1.4rem var(--ser);margin-top:14px}
+details{border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin-top:10px;background:var(--bg)}
+summary{cursor:pointer;font-weight:600;min-height:28px}
+.bar{height:8px;background:var(--ln);border-radius:9px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+.ck{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.ck label{display:flex;gap:10px;padding:10px 12px;border:1px solid var(--ln);border-radius:12px;background:var(--sf);cursor:pointer}
+.ck input{width:22px;height:22px;flex:none;accent-color:var(--ac);margin-top:2px}.ck span{display:block;color:var(--mu);font-size:.9rem}
+svg{width:100%;height:auto;display:block;max-height:44vh}
+input[type=range]{width:100%;accent-color:var(--ac);height:32px}
+.ro{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.ro div{flex:1 1 130px;padding:8px 12px;border-radius:12px;background:var(--as)}.ro .w{background:var(--ws)}.ro b{display:block;font:700 1.5rem var(--ser)}.ro small{color:var(--mu)}
+.steps{counter-reset:s;display:grid;gap:10px;padding:0;list-style:none;margin:14px 0 0}
+.steps li{counter-increment:s;display:flex;gap:12px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:12px}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--ac);color:var(--sf);display:grid;place-items:center;font-weight:700}
+.steps span{display:block;color:var(--mu);font-size:.92rem}
+.nx{margin-top:28px;display:flex;justify-content:space-between;gap:8px}
+.gv{display:block;margin-bottom:8px}.gv svg{max-height:100px;width:100%}
+.c1{fill:var(--ac)}.c2{fill:#d9962b}.c3{fill:#6f86d6}.c4{fill:var(--wn)}.soft{opacity:.4}.hole{fill:var(--sf)}
+.ax{stroke:var(--mu);fill:none;stroke-width:1.5}.ln{stroke:var(--ac);stroke-width:3;fill:none;stroke-linejoin:round}.ln2{stroke:#d9962b;stroke-width:3;fill:none;stroke-linejoin:round}
+.gal .card h3{font-size:1.05rem}.gal .card p b{color:var(--ink)}
+@media (min-width:700px) and (orientation:landscape),(min-width:1000px){
+ .app{display:grid;grid-template-columns:240px 1fr}
+ nav{flex-direction:column;overflow:auto;border:0;border-right:1px solid var(--ln);height:calc(100vh - env(safe-area-inset-top,0px));padding:14px 10px}
+ nav b{display:block}nav button{border-radius:10px;white-space:normal}
+ .split{grid-template-columns:1fr 1fr;align-items:start}
+}
+@media (orientation:landscape) and (max-height:500px){svg{max-height:62vh}.hero{padding:18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<div class="app"><nav id="nav" aria-label="Course navigation"></nav><main id="main" tabindex="-1"></main></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},done={};
+var Q={
+m1:[["Quality moved from 96% to 98%. What is the correct description?",["Up 2%","Up 2 percentage points","Up 98%"],1,"Percentages compared with percentages are described in percentage points."],["Which is an insight, rather than raw data?",["March: 7,200 transactions","Volumes fell 24% after the system change","Quality: 94%"],1,"An insight explains what the numbers mean. Raw figures alone do not."]],
+m2:[["Which chart best shows a monthly trend over a year?",["Pie chart","Line chart","Doughnut chart"],1,"Line charts show change over time."],["You need to show each region’s share of a total. Best choice?",["Pie or stacked bar","Scatter plot","Histogram"],0,"Parts of a whole suit pie or stacked bar charts, ideally with few categories."]],
+m3:[["Months of 8,000, 9,500, 7,200 and 10,000 transactions. What is the average?",["8,675","8,925","9,000"],0,"34,700 ÷ 4 = 8,675."],["Ice cream sales and sunburn cases both rise in summer. What can you conclude?",["Ice cream causes sunburn","They are correlated, with a likely common cause","Sunburn drives sales"],1,"Correlation is not causation. Heat is a hidden third factor."]],
+m4:[["A chart’s Y-axis starts at 96 and shows revenue moving from 98 to 102. What is wrong?",["Wrong chart type","Truncated axis exaggerates a small change","Missing legend"],1,"Start bar axes at zero and state the real change."],["A report states Jan–Apr average quality (96, 98, 94, 99) as 97.5%. What should you do?",["Accept it","Recalculate: it is 96.75%","Drop April"],1,"(96+98+94+99) ÷ 4 = 96.75%, below the 97% target."],["Attendance and productivity both fell. Best response to “absence caused it”?",["Agree","The link is unproven; check what else changed","Remove the productivity data"],1,"Look for other factors such as process changes or seasonality."]],
+m5:[["Which formula counts months meeting a 97% target in C2:C5?",["=SUM(C2:C5)","=COUNTIF(C2:C5,\">=97\")","=AVERAGE(C2:C5)"],1,"COUNTIF counts cells that meet a condition."],["Best practice for a summary slide?",["Fill it with every chart","One clear title that states the finding","Use 3D charts"],1,"Title the slide with the takeaway and keep it uncluttered."]],
+m6:[["In the five-step structure, what comes right after Observation?",["Action","Comparison","Context"],1,"Context, Observation, Comparison, Insight, Action."],["Quality missed target. Best wording for a manager?",["The team failed","Quality was 94% in March, 3 points below target. Here is what we will do.","Quality is bad"],1,"State the facts, the gap and the next step, without blame."]]};
+var F=[["Chart and table identification","Which chart is best for comparing values across categories?",["Bar chart","Scatter plot","Histogram"],0,"Bar charts compare categories."],["Data interpretation","Target 97%, actual 94%. The gap is…",["3%","3 percentage points","94 percentage points"],1,"Subtract the percentages and use points."],["Misleading data","A bar chart’s axis starts at 1.8% to show 2% vs 4%. The second bar looks about…",["2× taller","5× taller","11× taller"],2,"(4−1.8) ÷ (2−1.8) = 11, though the real ratio is 2."],["Tool application","Which Excel feature summarises data by category quickly?",["Pivot table","Spell check","Page layout"],0,"Pivot tables summarise large datasets."],["Presenting findings","Which sequence is correct?",["Insight, Action, Context","Context, Observation, Comparison, Insight, Action","Action, Context, Observation"],1,"Context first, action last."]];
+function quiz(host,items,fin){
+ var n=0,r=0,by={};
+ host.innerHTML=items.map(function(x,i){var o=fin?x.slice(1):x;return'<div class="card q"><h3>'+(i+1)+'. '+o[0]+'</h3><div class="opts">'+o[1].map(function(t,j){return'<button class="btn" data-q="'+i+'" data-o="'+j+'">'+t+'</button>'}).join('')+'</div><div class="fb"></div></div>'}).join('')+'<div class="sc"></div>';
+ host.onclick=function(e){var b=e.target.closest("button[data-q]");if(!b||b.parentNode.dataset.d)return;
+  var i=+b.dataset.q,j=+b.dataset.o,x=fin?items[i].slice(1):items[i],p=b.parentNode;p.dataset.d=1;n++;
+  [].forEach.call(p.children,function(c,k){c.disabled=true;if(k===x[2])c.classList.add("right");else if(c===b)c.classList.add("wrong")});
+  if(j===x[2]){r++;by[i]=1}
+  var f=p.nextSibling;f.style.display="block";f.textContent=(j===x[2]?"Correct. ":"Not quite. ")+x[3];
+  if(n===items.length){var s=host.lastChild,pc=Math.round(r/n*100);
+   s.textContent=fin?"Score: "+pc+"%. "+(pc>=80?"Passed. Well done.":"Below the 80% pass mark. Review the modules and try again."):"You scored "+r+" of "+n+".";
+   if(fin)s.innerHTML+='<div class="grid" style="font:400 .9rem var(--san)">'+items.map(function(x,i){return'<div class="card" style="padding:10px"><b>'+(by[i]?"✓":"✗")+'</b> '+x[0]+'</div>'}).join('')+'</div>';}};
+}
+var AX='<path class="ax" d="M16 6V68H112"/>';
+function S(i,l){return'<svg viewBox="0 0 120 80" role="img" aria-label="'+l+'">'+i+'</svg>'}
+var PIE='<path class="c1" d="M60 40L60 10A30 30 0 0 1 60 70Z"/><path class="c2" d="M60 40L60 70A30 30 0 0 1 31.5 30.7Z"/><path class="c3" d="M60 40L31.5 30.7A30 30 0 0 1 60 10Z"/>';
+var G=[
+["Bar chart",S(AX+'<rect class="c1" x="17" y="10" width="85" height="13"/><rect class="c1" x="17" y="30" width="58" height="13"/><rect class="c1" x="17" y="50" width="36" height="13"/>',"Horizontal bars of different lengths"),"Compare values across categories, especially when names are long.","Transactions handled by each team."],
+["Column chart",S(AX+'<rect class="c1" x="26" y="30" width="20" height="38"/><rect class="c1" x="54" y="14" width="20" height="54"/><rect class="c1" x="82" y="42" width="20" height="26"/>',"Vertical columns of different heights"),"Compare quantities across categories or time periods.","Transactions processed each month."],
+["Line chart",S(AX+'<polyline class="ln" points="24,56 44,42 64,48 84,26 104,14"/>',"A line rising and falling across time"),"Show a trend or change over time.","Quality score month by month."],
+["Pie chart",S(PIE,"A circle divided into three slices"),"Show how parts make up a whole. Keep it to about five slices.","Share of errors by type."],
+["Doughnut chart",S(PIE+'<circle class="hole" cx="60" cy="40" r="15"/>',"A ring divided into three segments"),"Like a pie chart, with a hollow centre that can hold the total.","Share of customer contacts by channel."],
+["Area chart",S(AX+'<polygon class="c1 soft" points="20,68 20,54 42,40 64,46 86,24 108,12 108,68"/><polyline class="ln" points="20,54 42,40 64,46 86,24 108,12"/>',"A filled area under a rising line"),"Show how a total builds up over time.","Cumulative transactions through the month."],
+["Scatter plot",S(AX+'<g class="c1"><circle cx="28" cy="58" r="3.5"/><circle cx="38" cy="50" r="3.5"/><circle cx="47" cy="54" r="3.5"/><circle cx="57" cy="40" r="3.5"/><circle cx="66" cy="43" r="3.5"/><circle cx="75" cy="30" r="3.5"/><circle cx="85" cy="34" r="3.5"/><circle cx="96" cy="18" r="3.5"/></g>',"Dots scattered along a rising pattern"),"See whether two numbers move together.","Attendance against productivity."],
+["Histogram",S(AX+'<rect class="c1" x="22" y="56" width="14" height="12"/><rect class="c1" x="36" y="42" width="14" height="26"/><rect class="c1" x="50" y="24" width="14" height="44"/><rect class="c1" x="64" y="16" width="14" height="52"/><rect class="c1" x="78" y="34" width="14" height="34"/><rect class="c1" x="92" y="50" width="14" height="18"/>',"Touching bars showing a spread of values"),"See how values are spread across ranges, with no gaps between bars.","How many agents fall into each score band."],
+["Stacked bar chart",S(AX+'<rect class="c1" x="22" y="44" width="22" height="24"/><rect class="c2" x="22" y="28" width="22" height="16"/><rect class="c3" x="22" y="18" width="22" height="10"/><rect class="c1" x="52" y="36" width="22" height="32"/><rect class="c2" x="52" y="26" width="22" height="10"/><rect class="c3" x="52" y="14" width="22" height="12"/><rect class="c1" x="82" y="50" width="22" height="18"/><rect class="c2" x="82" y="38" width="22" height="12"/><rect class="c3" x="82" y="30" width="22" height="8"/>',"Columns split into coloured sections"),"Compare totals and see what each total is made of.","Monthly errors split by error type."],
+["Combo chart",S(AX+'<rect class="c1 soft" x="24" y="44" width="20" height="24"/><rect class="c1 soft" x="52" y="30" width="20" height="38"/><rect class="c1 soft" x="80" y="38" width="20" height="30"/><polyline class="ln2" points="34,28 62,16 90,22"/>',"Columns with a line drawn over them"),"Show two different measures together, such as volume and a percentage.","Transactions as columns, quality percentage as a line."]
+];
+function gallery(){return'<h3 style="margin-top:22px">Meet the charts</h3><p class="lede">Each picture is a simplified example of what the chart looks like and when to use it.</p><div class="grid gal">'+G.map(function(g){return'<div class="card"><span class="gv">'+g[1]+'</span><h3>'+g[0]+'</h3><p><b>Use it to:</b> '+g[2]+'</p><p><b>Example:</b> '+g[3]+'</p></div>'}).join('')+'</div>'}
+var M=[
+{n:"Introduction to Data Interpretation",s:"Introduction",t:25,obj:"Understand why data interpretation matters in everyday business operations.",tp:["What is data?","Raw data, information and insights","Quantitative vs qualitative data","Absolute values, percentages, ratios and averages","Business metrics and KPIs","Common interpretation mistakes","Why data accuracy matters"],act:"Read a simple operational report and identify three important findings.",out:"Learners see how raw data becomes meaningful information.",
+ x:function(){return'<h3 style="margin-top:22px">Four ways to state the same team’s numbers</h3><div class="grid"><div class="card"><h3>Absolute value</h3><p>9,500 transactions in February.</p></div><div class="card"><h3>Percentage</h3><p>Quality score of 96%.</p></div><div class="card"><h3>Ratio</h3><p>1 error for every 50 transactions.</p></div><div class="card"><h3>Average</h3><p>8,675 transactions a month.</p></div></div>'}},
+{n:"Types of Charts, Graphs and Tables",s:"Charts and tables",t:45,obj:"Identify common visualisation types and know when to use each.",tp:["Bar and column charts","Line and area charts","Pie and doughnut charts","Scatter plot and histogram","Stacked bar and combo charts","Simple, pivot, frequency and cross-tab tables","Titles, axes, legends, labels and units"],act:"Choose the most appropriate chart for one dataset.",out:"Learners recognise common visuals and select fitting formats.",
+ x:function(){return gallery()+'<h3 style="margin-top:26px">Chart chooser: tap your goal</h3><p class="lede">Pick what you want to show and see the chart that fits.</p><div class="grid" id="cc">'+[["Compare categories","Bar or column chart"],["Show a trend over time","Line chart"],["Show parts of a whole","Pie, doughnut or stacked bar (few slices)"],["Relate two numbers","Scatter plot"],["See how values are spread","Histogram"],["Show volume and a rate together","Combo chart"]].map(function(a,i){return'<button class="card" data-i="'+i+'"><b>'+a[0]+'</b><p></p></button>'}).join('')+'</div>'},
+ b:function(){var A=["Bar or column chart","Line chart","Pie, doughnut or stacked bar (few slices)","Scatter plot","Histogram","Combo chart"],I=[1,2,3,6,7,9];$("cc").onclick=function(e){var b=e.target.closest("button");if(b)b.querySelector("p").innerHTML="→ "+A[b.dataset.i]+'<span class="gv" style="margin-top:8px">'+G[I[b.dataset.i]][1]+'</span>'}}},
+{n:"Interpreting Data and Identifying Trends",s:"Trends",t:45,obj:"Read charts and tables and extract meaningful insights.",tp:["Highest and lowest values","Comparing categories","Upward and downward trends","Fluctuations and outliers","Percentage change and averages","Actual vs target","Correlation vs causation"],act:"Using a monthly production report, find the best and worst months, unusual fluctuations, the overall direction, and make two recommendations.",out:"Learners interpret data, spot trends and draw observations.",
+ x:function(){var d=[["January",8000],["February",9500],["March",7200],["April",10000]],h='<h3 style="margin-top:22px">Worked example: transactions</h3><div class="card scroll"><table><tr><th>Month</th><th>Volume</th><th>Change</th></tr>';d.forEach(function(r,i){var c=i?(r[1]-d[i-1][1]):0,p=i?(c/d[i-1][1]*100).toFixed(1):"";h+='<tr><td>'+r[0]+'</td><td>'+r[1].toLocaleString()+'</td><td>'+(i?(c>0?"+":"−")+Math.abs(c).toLocaleString()+" ("+(c>0?"+":"−")+Math.abs(p)+"%)":"–")+'</td></tr>'});return h+'</table><p>Highest: April. Lowest: March. Average: 8,675. The overall direction is up, but with a sharp dip in March worth investigating.</p></div>'}},
+{n:"Identifying Incorrect, Misleading and Manipulated Data",s:"Misleading data",t:60,obj:"Recognise incorrect or misleading data before accepting or presenting it.",tp:["Wrong values and formulas","Missing or duplicate records","Mixed units and wrong date ranges","Truncated Y-axis","Uneven axis intervals","3D charts","Cherry-picked periods","Correlation as proof of causation"],act:"Compare two charts of the same data, one honest and one with a truncated axis. Explain which misleads and why.",out:"Learners question the accuracy of information before accepting it.",
+ x:function(){var st=["Check the source|Where did the data come from?","Check the time period|Is the reporting period consistent?","Check the units|Are all values in the same units?","Check the calculations|Do totals and percentages add up?","Check the sample size|Is there enough data?","Check the visualisation|Does the chart match the numbers?","Check the context|Is anything missing?","Cross-verify|Does the original data support the finding?"];
+ return'<h3 style="margin-top:22px">Chart lab: move the axis</h3><div class="card"><svg id="ch" viewBox="0 0 320 210" role="img" aria-label="Error rate bars, 2 percent and 4 percent"></svg><label for="bs"><b>Axis starts at <output id="bo">1.8%</output></b></label><input id="bs" type="range" min="0" max="1.8" step="0.1" value="1.8"><div class="ro" aria-live="polite"><div class="w"><b id="sn"></b><small>How much taller the second bar looks</small></div><div><b>2×</b><small>The real difference</small></div></div></div><h3 style="margin-top:22px">Eight-point validation check</h3><div class="bar"><i id="pf"></i></div><ul class="ck" id="ck">'+st.map(function(s){s=s.split("|");return'<li><label><input type="checkbox"><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></label></li>'}).join('')+'</ul>'},
+ b:function(){var bs=$("bs"),sv=$("ch");function dr(){var b=+bs.value,m=4.4,f=174,h=150,H=function(v){return Math.max(2,(v-b)/(m-b)*h)},a=H(2),c=H(4),t="";for(var k=Math.ceil(b);k<=4;k++){var y=f-(k-b)/(m-b)*h;t+='<line x1="46" x2="312" y1="'+y+'" y2="'+y+'" stroke="var(--ln)"/><text x="40" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="var(--mu)">'+k+'%</text>'}
+ sv.innerHTML=t+'<rect x="80" y="'+(f-a)+'" width="70" height="'+a+'" rx="4" fill="var(--ac)"/><rect x="190" y="'+(f-c)+'" width="70" height="'+c+'" rx="4" fill="var(--wn)"/><line x1="46" x2="312" y1="'+f+'" y2="'+f+'" stroke="var(--ink)"/><text x="115" y="192" text-anchor="middle" font-size="12" fill="var(--ink)">Before: 2%</text><text x="225" y="192" text-anchor="middle" font-size="12" fill="var(--ink)">After: 4%</text>';
+ $("bo").textContent=b.toFixed(1)+"%";$("sn").textContent=((4-b)/(2-b)).toFixed(1)+"×"}
+ bs.oninput=dr;dr();$("ck").onchange=function(){$("pf").style.width=$("ck").querySelectorAll(":checked").length/8*100+"%"}}},
+{n:"Common Tools for Interpretation and Presentation",s:"Tools",t:60,obj:"Use common tools for basic analysis and presentation.",tp:["Excel: sorting, filtering, formulas, conditional formatting, pivot tables","PowerPoint: charts, summary slides, clear titles","Power BI, Google Sheets, Tableau, Looker Studio"],act:"With a sample Excel dataset: sort and filter, calculate the average, find highest and lowest values, create a chart, and build one summary slide.",out:"Learners understand the basic functions of the main tools.",
+ x:function(){return'<h3 style="margin-top:22px">Excel formulas to practise</h3><div class="card scroll"><table><tr><th>Task</th><th>Formula</th></tr><tr><td>Total</td><td><code>=SUM(B2:B5)</code></td></tr><tr><td>Average</td><td><code>=AVERAGE(B2:B5)</code></td></tr><tr><td>Count entries</td><td><code>=COUNT(B2:B5)</code></td></tr><tr><td>Months at or above target</td><td><code>=COUNTIF(C2:C5,"&gt;=97")</code></td></tr><tr><td>Percentage change</td><td><code>=(B3-B2)/B2</code></td></tr></table></div><div class="grid"><div class="card"><h3>PowerPoint</h3><p>Title each slide with the finding. One chart per slide. Highlight the key number and avoid crowding.</p></div><div class="card"><h3>Power BI and Tableau</h3><p>Interactive dashboards. Introduced here, developed in a later programme.</p></div><div class="card"><h3>Google Sheets and Looker Studio</h3><p>Shared spreadsheets and simple online reports.</p></div></div>'}},
+{n:"Presenting Data and Communicating Findings",s:"Presenting",t:35,obj:"Communicate data findings clearly and professionally.",tp:["Know your audience and purpose","Select relevant information","Clear chart titles and descriptions","Turn data into actionable insights","Avoid jargon","Report poor performance professionally","Recommend actions backed by data"],act:"Give a two-minute summary of a sample report as if speaking to a team leader.",out:"Learners communicate findings in a structured, business-ready way.",
+ x:function(){return'<h3 style="margin-top:22px">Five-step structure</h3><ol class="steps"><li><div><b>Context</b><span>What does the data represent? “This is March quality for the claims team.”</span></div></li><li><div><b>Observation</b><span>What does it show? “Quality was 94%.”</span></div></li><li><div><b>Comparison</b><span>How does it compare? “That is 3 points below target and 4 below February.”</span></div></li><li><div><b>Insight</b><span>What does it mean? “Errors rose after the process change.”</span></div></li><li><div><b>Action</b><span>What next? “Refresher training and a weekly quality check.”</span></div></li></ol>'}},
+{n:"Real-Life Business Cases",s:"Case studies",t:60,obj:"Apply the concepts to practical business scenarios.",tp:["Production performance","Quality performance","Misleading data","Attendance and productivity"],act:"Work through each case, then open the model answer to compare.",out:"Learners apply interpretation, validation and presentation to realistic situations.",
+ x:function(){var c=[["Case 1: Production","Jan 8,000, Feb 9,500, Mar 7,200, Apr 10,000. Find the highest and lowest months, the average, and the trend.","Highest April (10,000), lowest March (7,200), average 8,675. Changes: +18.8%, −24.2%, +38.9%. Use a column or line chart. Trend: upward overall, with a March dip to investigate."],["Case 2: Quality","Target 97%. Jan 96%, Feb 98%, Mar 94%, Apr 99%. Which months hit target, and by how much did others miss?","February (+1 point) and April (+2 points) met target. January missed by 1 point and March by 3 points, the lowest. Actions: targeted coaching and a root-cause review of March."],["Case 3: Misleading chart","A chart shows errors rising from 2% to 4%, with the axis starting at 1.8%. Explain the issue.","The second bar looks about 11× taller, but the real rise is 2 percentage points (a doubling). Restart the axis at zero and state the actual numbers."],["Case 4: Attendance and productivity","Attendance fell for three months. What must you check before concluding anything?","Compare both series, but check other factors such as new processes, system outages, seasonality or staffing. Correlation does not establish causation. Present findings as a hypothesis."]];
+ return c.map(function(a){return'<div class="card"><h3>'+a[0]+'</h3><p>'+a[1]+'</p><details><summary>Show model answer</summary><p>'+a[2]+'</p></details></div>'}).join('')}}
+];
+var nav=$("nav"),main=$("main"),cur="h";
+function build(){nav.innerHTML='<b>Data interpretation</b><button data-v="h">Overview</button>'+M.map(function(m,i){return'<button data-v="'+i+'">'+(i+1)+'. '+m.s+'</button>'}).join('')+'<button data-v="f">Final assessment</button>'}
+function show(v){cur=v;var h="";
+ if(v==="h"){h='<div class="hero"><h1>Data: basic interpretation and presentation</h1><p>Read charts and tables with confidence, catch errors and misleading visuals, and present clear, honest findings.</p><span class="pill">Beginner to intermediate</span><span class="pill">6 hours 40 minutes</span><span class="pill">7 modules</span></div><div class="grid">'+M.map(function(m,i){return'<button class="card" data-v="'+i+'"><h3>'+(i+1)+'. '+m.s+'</h3><p>'+m.t+' minutes. '+m.obj+'</p></button>'}).join('')+'<button class="card" data-v="f"><h3>Final assessment</h3><p>30 minutes. Five questions, 80% to pass.</p></button></div>'}
+ else if(v==="f"){h='<div class="mh"><h2>Final assessment</h2><p class="lede">One question per skill area: chart identification, interpretation, misleading data, tools and presenting. You need 80% to pass.</p></div><div id="qz"></div>'}
+ else{var m=M[v];h='<div class="mh"><p class="lede">Module '+(+v+1)+' of 7 · '+m.t+' minutes</p><h2>'+m.n+'</h2><p>'+m.obj+'</p></div><div class="tags'+(v==3?" bad":"")+'">'+m.tp.map(function(t){return'<span>'+t+'</span>'}).join('')+'</div>'+(m.x?m.x():"")+'<div class="card act"><h3>Practical activity</h3><p>'+m.act+'</p></div><div class="card out"><h3>Expected outcome</h3><p>'+m.out+'</p></div>'+(Q["m"+(+v+1)]?'<h3 style="margin-top:26px">Knowledge check</h3><div id="qz"></div>':"")}
+ var nxt=v==="h"?0:v==="f"?"h":(v<6?v+1:"f");
+ h+='<div class="nx">'+(v!=="h"?'<button class="btn" data-v="'+(v==="f"?6:v===0?"h":v-1)+'">Back</button>':'<span></span>')+(v==="f"?'':'<button class="btn p" data-v="'+nxt+'">'+(v==="h"?"Start module 1":v==6?"Final assessment":"Next module")+'</button>')+'</div>';
+ main.innerHTML=h;
+ if($("qz"))quiz($("qz"),v==="f"?F:Q["m"+(+v+1)],v==="f");
+ if(v!=="h"&&v!=="f"){done[v]=1;if(M[v].b)M[v].b()}
+ [].forEach.call(nav.querySelectorAll("button"),function(b){b.classList.toggle("on",b.dataset.v==String(v));b.classList.toggle("d",!!done[b.dataset.v]&&b.dataset.v!=String(v))});
+ window.scrollTo(0,0);main.focus({preventScroll:true})}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-v]");if(!b)return;var v=b.dataset.v;show(v==="h"||v==="f"?v:+v)});
+build();show("h");
+})();
+</script></body></html>
